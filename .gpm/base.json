@@ -1,0 +1,8 @@
+{
+    "base_path": "/var/projects/buzz/buzz-intern-server/category/.gpm/base.json",
+    "gpm_path": "/var/projects/buzz/buzz-intern-server/category/.gpm",
+    "name": "dj-category",
+    "project_type": "module",
+    "repository_url": "https://github.com/px57/dj-category.git",
+    "root_path": "/var/projects/buzz/buzz-intern-server/category"
+}
