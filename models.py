@@ -5,10 +5,11 @@ from kernel.models.serialize import serializer__serialize__, serializer__init__
 from django.forms.models import model_to_dict
 
 class CategoryTranslation(BaseMetadataModel):
-    icon = models.ImageField(
-        upload_to='category/icons/',
-        blank=True, 
-        null=True
+    icon = models.ForeignKey(
+        'mediacenter.Icon',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
     )
 
     language = models.CharField(
@@ -52,10 +53,11 @@ class Category(BaseMetadataModel):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-    icon = models.ImageField(
-        upload_to='category/icons/',
-        blank=True, 
-        null=True
+    icon = models.ForeignKey(
+        'mediacenter.Icon',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
     )
 
     name = models.CharField(
@@ -68,8 +70,6 @@ class Category(BaseMetadataModel):
         null=True
     )
 
-    class Meta:
-        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.name

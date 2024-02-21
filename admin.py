@@ -21,5 +21,8 @@ class CategoryTranslationInline(admin.StackedInline):
 
 @admin.register(models.Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'icon')
+    list_display = (
+        'name', 
+        # 'icon'
+        )
     inlines = [CategoryTranslationInline]
