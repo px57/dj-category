@@ -6,9 +6,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # path(
-    #     'signin/', 
-    #     views.signin, 
-    #     name='profiles__signin'
-    # ),
+    path(
+        'get_all/', 
+        views.get_all, 
+        name='category__get_all'
+    ),
+    path(
+        'set_selected_category/', 
+        views.set_selected_category, 
+        name='category__set_selected_category'
+    ),
 ]
