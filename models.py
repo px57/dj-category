@@ -3,6 +3,7 @@ from django.db import models
 from kernel.models.base_metadata_model import BaseMetadataModel
 from kernel.models.serialize import serializer__serialize__, serializer__init__
 from django.forms.models import model_to_dict
+from category.__rules__.stack import CATEGORY_RULESTACK
 
 class CategoryTranslation(BaseMetadataModel):
     icon = models.ForeignKey(
@@ -53,6 +54,12 @@ class Category(BaseMetadataModel):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
+    interface = models.CharField(
+        max_length=255, 
+        blank=True, 
+        null=True,
+        choices=CATEGORY_RULESTACK.models_choices(),
+    )
     icon = models.ForeignKey(
         'mediacenter.Icon',
         on_delete=models.CASCADE,
