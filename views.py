@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from kernel.http import Response
 
-# Create your views here.
+def __empty__(request):
+    res = Response()
+    return res.success()
