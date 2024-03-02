@@ -13,4 +13,4 @@ class DefaultRuleClass(InterfaceManager):
     allow = True
 
 
-CATEGORY_RULESTACK.set_rule(DefaultRuleClass())
+CATEGORY_RULESTACK.set_rule(DefaultRuleClass)
