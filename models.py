@@ -88,3 +88,22 @@ class Category(BaseMetadataModel):
         """
         serialize = model_to_dict(self)
         return serialize
+    
+class SelectedCategory(BaseMetadataModel):
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.category.name
+
+    @serializer__serialize__
+    def serialize(self, request, **kwargs):
+        """
+            @description: 
+        """
+        serialize = model_to_dict(self)
+        return serialize

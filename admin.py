@@ -23,6 +23,6 @@ class CategoryTranslationInline(admin.StackedInline):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'name', 
-        # 'icon'
+        'interface'
         )
     inlines = [CategoryTranslationInline]

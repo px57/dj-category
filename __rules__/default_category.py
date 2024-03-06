@@ -10,7 +10,18 @@ class DefaultRuleClass(InterfaceManager):
 
     label = 'DEFAULT'
 
-    allow = True
+    """
+    Max categories per user
 
+    If the value is '*', then there is no maximum
+    """
+    max_categories_per_user = 3
+
+    """
+    Min categories per user
+
+    If the value is '*', then there is no minimum
+    """
+    min_categories_per_user = 2
 
 CATEGORY_RULESTACK.set_rule(DefaultRuleClass)
