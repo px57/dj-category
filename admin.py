@@ -26,3 +26,20 @@ class CategoryAdmin(admin.ModelAdmin):
         'interface'
         )
     inlines = [CategoryTranslationInline]
+
+
+@admin.register(models.CategoryTranslation)
+class CategoryTranslationAdmin(admin.ModelAdmin):
+    list_display = (
+        'language',
+        'name',
+        'description',
+    )
+
+@admin.register(models.CategoryRelatedTo)
+class CategoryRelatedToAdmin(admin.ModelAdmin):
+    list_display = (
+        'category',
+        'relatedModel',
+        'relatedModelId',
+    )

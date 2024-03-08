@@ -2,6 +2,7 @@
 
 from kernel.interfaces.interfaces import InterfaceManager
 from category.__rules__.stack import CATEGORY_RULESTACK
+from colorama import Fore, Style
 
 class DefaultRuleClass(InterfaceManager):
     """
@@ -24,4 +25,31 @@ class DefaultRuleClass(InterfaceManager):
     """
     min_categories_per_user = 2
 
+    # """
+    # Set selected category is database save.
+    # """
+    # def event_set_selected_categories(self, dbCategories):
+    #     print (Fore.RED + 'DefaultRuleClass: event_set_selected_categories is empty' + Style.RESET_ALL)
+    #     return True
+
+    def relatedModelId__for__set_selected_category(self):
+        """
+        Return the related model id for the set selected category
+        """
+        return self.request.POST.get('relatedModelId')
+    
+
+    def dbCategoryRelatedTo__pre_save(self, sender, instance, **kwargs):
+        """
+        
+        """
+        pass
+
+    def dbCategoryRelatedTo__pre_delete(self, sender, instance, **kwargs):
+        """
+        
+        """
+        pass
+
 CATEGORY_RULESTACK.set_rule(DefaultRuleClass)
+

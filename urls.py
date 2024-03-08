@@ -16,4 +16,9 @@ urlpatterns = [
         views.set_selected_category, 
         name='category__set_selected_category'
     ),
+    path(
+        'get_related_categories/', 
+        views.get_related_categories, 
+        name='category__get_related_categories'
+    ),
 ]
