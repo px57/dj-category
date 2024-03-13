@@ -41,13 +41,19 @@ class DefaultRuleClass(InterfaceManager):
 
     def dbCategoryRelatedTo__pre_save(self, sender, instance, **kwargs):
         """
-        
+        Receive the pre save signal
         """
         pass
 
     def dbCategoryRelatedTo__pre_delete(self, sender, instance, **kwargs):
         """
-        
+        Receive the pre delete signal
+        """
+        pass
+
+    def dbCategoryRelatedTo__post_save(self, sender, instance, **kwargs):
+        """
+        Receive the post save signal
         """
         pass
 

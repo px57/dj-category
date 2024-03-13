@@ -1,7 +1,7 @@
 
 from django.db import models
 from django.forms.models import model_to_dict
-from django.db.models.signals import pre_save, pre_delete
+from django.db.models.signals import pre_save, pre_delete, post_save
 from django.dispatch import receiver
 
 from kernel.models.base_metadata_model import BaseMetadataModel
@@ -133,9 +133,6 @@ class CategoryRelatedTo(BaseMetadataModel):
         null=True,
     )
 
-    def __str__(self):
-        return self.category.name
-
     @serializer__serialize__
     def serialize(self, request, **kwargs):
         """
@@ -152,6 +149,14 @@ def pre_save_categoryrelatedto(sender, instance, **kwargs):
     """
     _in = CATEGORY_RULESTACK.get_interface(instance.interface)()
     _in.dbCategoryRelatedTo__pre_save(sender, instance, **kwargs)
+
+@receiver(post_save, sender=CategoryRelatedTo)
+def post_save_categoryrelatedto(sender, instance, **kwargs):
+    """
+        @description: 
+    """
+    _in = CATEGORY_RULESTACK.get_interface(instance.interface)()
+    _in.dbCategoryRelatedTo__post_save(sender, instance, **kwargs)
 
 @receiver(pre_delete, sender=CategoryRelatedTo)
 def pre_delete_categoryrelatedto(sender, instance, **kwargs):
