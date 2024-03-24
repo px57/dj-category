@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
+from django.views.decorators.cache import cache_page
 
 from kernel.http import Response
 from kernel.http import load_response
@@ -23,14 +24,14 @@ def res__Dbcategories(dbCategories, request, res=None):
         )
     ]
 
+@cache_page(60 * 15)
 @load_profile
 @load_json
 @load_response(stack=CATEGORY_RULESTACK)
-def get_all(request, res=None):
+def get_all(request, res=None, _in=None):
     """
     Get all categories, to the user select one
     """
-    _in = res.get_interface()
     dbCategories = Category.objects.filter(interface=_in.label)
     res__Dbcategories(dbCategories, request, res)
     return res.success()
@@ -38,8 +39,7 @@ def get_all(request, res=None):
 @load_profile
 @load_json
 @load_response(stack=CATEGORY_RULESTACK)
-def set_selected_category(request, res=None):
-    _in = res.get_interface()
+def set_selected_category(request, res=None, _in=None):
     form = SetSelectedCategoryForm({
         '_in': _in,
         'selected_list_id': request.POST.get('selected_list_id')
