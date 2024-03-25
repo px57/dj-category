@@ -1,6 +1,6 @@
 
 
-from kernel.interfaces.interfaces import InterfaceManager
+from gpm.interfaces.interfaces import InterfaceManager
 from category.__rules__.stack import CATEGORY_RULESTACK
 from colorama import Fore, Style
 

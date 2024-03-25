@@ -2,11 +2,11 @@ from django.shortcuts import render
 from django.db.models import Q
 from django.views.decorators.cache import cache_page
 
-from kernel.http import Response
-from kernel.http import load_response
-from kernel.i18n.models import translateDBQuerySet
-from kernel.http.decorators import load_json
-from kernel.interfaces.interfaces import message_addmethod_tointerface
+from gpm.http import Response
+from gpm.http import load_response
+from gpm.i18n.models import translateDBQuerySet
+from gpm.http.decorators import load_json
+from gpm.interfaces.interfaces import message_addmethod_tointerface
 
 from profiles.decorators import load_profile
 

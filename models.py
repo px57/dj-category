@@ -4,9 +4,9 @@ from django.forms.models import model_to_dict
 from django.db.models.signals import pre_save, pre_delete, post_save
 from django.dispatch import receiver
 
-from kernel.models.base_metadata_model import BaseMetadataModel
-from kernel.models.serialize import serializer__serialize__, serializer__init__
-from kernel.models.fetch_all_models_file import choicesListRelatedModels
+from gpm.models.base_metadata_model import BaseMetadataModel
+from gpm.models.serialize import serializer__serialize__, serializer__init__
+from gpm.models.fetch_all_models_file import choicesListRelatedModels
 
 from category.__rules__.stack import CATEGORY_RULESTACK
 

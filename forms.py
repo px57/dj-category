@@ -2,7 +2,7 @@
 from django import forms
 from django.db.models import Q
 
-from kernel.interfaces.forms import InterfaceValidator  
+from gpm.interfaces.forms import InterfaceValidator  
 
 from category.models import Category
 
